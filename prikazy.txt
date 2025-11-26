@@ -119,15 +119,9 @@ openssl pkey -in <openssl_key.pem> -pubout -out <openssl_pk.pem>
 
 I. PODPIS A OVERENIE (OpenSSL → OpenSSL)
 --------------------------------------------------------------------------------
-openssl pkeyutl -sign \
-  -inkey <openssl_key.pem> \
-  -in <subor> \
-  -out <podpis.sig>
+openssl pkeyutl -sign -inkey <openssl_key.pem> -in <subor> -out <podpis.sig>
 
-openssl pkeyutl -verify -pubin \
-  -inkey <openssl_pk.pem> \
-  -in <subor> \
-  -sigfile <podpis.sig>
+openssl pkeyutl -verify -pubin -inkey <openssl_pk.pem> -in <subor> -sigfile <podpis.sig>
 
 
 ================================================================================
